@@ -1,31 +1,5 @@
-/********   All Required Header Files ********/
-#include <iostream>
-#include <string>
-#include <vector>
-#include <algorithm>
-#include <sstream>
-#include <queue>
-#include <deque>
-#include <bitset>
-#include <iterator>
-#include <list>
-#include <stack>
-#include <map>
-#include <set>
-#include <functional>
-#include <numeric>
-#include <utility>
-#include <limits>
-#include <time.h>
-#include <math.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <assert.h>
 #include <bits/stdc++.h>
 using namespace std;
-
-/*******  All Required define Pre-Processors and typedef Constants *******/
 #define SCD(t) scanf("%d",&t)
 #define SCLD(t) scanf("%ld",&t)
 #define SCLLD(t) scanf("%lld",&t)
@@ -69,3 +43,12 @@ typedef unsigned long long int  uint64;
 /****** Template of some basic operations *****/
 template<typename T, typename U> inline void amin(T &x, U y) { if(y < x) x = y; }
 template<typename T, typename U> inline void amax(T &x, U y) { if(x < y) x = y; }
+
+int main(){
+    ios_base::sync_with_stdio(0);
+    int t, i, j, k, p, q, r, x, y, u, v, n, m;
+    while(t--){
+        
+    }
+    return 0;
+}
