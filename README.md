@@ -1,2 +1,2 @@
 # Coding
-Coding Challenges
+Coding Challenges across various platforms.
