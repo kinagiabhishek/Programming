@@ -56,8 +56,33 @@ template<typename T, typename U> inline void amax(T &x, U y) { if(x < y) x = y; 
 int main(){
     ios_base::sync_with_stdio(0);
     int t, a, b, c, p, q, r, x, y, u, v, n, m;
+    string s;
+    scd(t);
     while(t--){
-        
+        vi hash(26,0);
+        char s[100000];
+        vi answers(1000000001,0);
+        u=0;
+        scd(n);
+        scd(q);
+        scs(s);
+        rep(i,n)
+            hash[s[i]-'a']++;
+        while(n>0){
+            answers[u++]=n;
+            m=0;
+            rep(i,26){
+                if(hash[i]>0){
+                    hash[i]--;
+                    m++;
+                }
+            }
+            n-=m;
+        }
+        while(q--){
+            scd(c);
+            cout<<answers[c]<<endl;
+        }
     }
     return 0;
 }

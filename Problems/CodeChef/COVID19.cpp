@@ -56,8 +56,43 @@ template<typename T, typename U> inline void amax(T &x, U y) { if(x < y) x = y; 
 int main(){
     ios_base::sync_with_stdio(0);
     int t, a, b, c, p, q, r, x, y, u, v, n, m;
+    scd(t);
     while(t--){
-        
+        m=0,q=11;
+        scd(n);
+        vb pos(11,false);
+        vb visited(11,false);
+        rep(i,n){
+            scd(p);
+            pos[p]=true;
+        }
+        rep(i,11){
+            if(pos[i] && !visited[i]){
+                visited[i]=true;
+                c=1;
+                int j=i;
+                while(j<11){
+                    if(j+1<11 && pos[j+1]){
+                        c++;
+                        j++;
+                        visited[j]=true;
+                    }else{
+                        if(j+2<11 && pos[j+2]){
+                            c++;
+                            j+=2;
+                            visited[j]=true;
+                        }else{
+                            break;
+                        }
+                    }
+                }
+                if(c>m)
+                    m=c;
+                if(c<q)
+                    q=c;
+            }
+        }
+        cout<<q<<" "<<m<<endl;
     }
     return 0;
 }
