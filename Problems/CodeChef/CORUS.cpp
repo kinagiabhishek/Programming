@@ -53,15 +53,14 @@ typedef unordered_multiset<int> umseti;
 template<typename T, typename U> inline void amin(T &x, U y) { if(y < x) x = y; }
 template<typename T, typename U> inline void amax(T &x, U y) { if(x < y) x = y; }
 
+char s[100001];
 int main(){
     ios_base::sync_with_stdio(0);
     int t, a, b, c, p, q, r, x, y, u, v, n, m;
-    string s;
     scd(t);
     while(t--){
         vi hash(26,0);
-        char s[100000];
-        vi answers(1000000001,0);
+        umpii answers;
         u=0;
         scd(n);
         scd(q);
@@ -81,7 +80,10 @@ int main(){
         }
         while(q--){
             scd(c);
-            cout<<answers[c]<<endl;
+            if(c>=u)
+                cout<<0<<endl;
+            else
+                cout<<answers[c]<<endl;
         }
     }
     return 0;
