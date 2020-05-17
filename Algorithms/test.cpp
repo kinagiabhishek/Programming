@@ -52,3 +52,11 @@ typedef unordered_multiset<int> umseti;
 /****** Template of some basic operations *****/
 template<typename T, typename U> inline void amin(T &x, U y) { if(y < x) x = y; }
 template<typename T, typename U> inline void amax(T &x, U y) { if(x < y) x = y; }
+
+int main(){
+    ios_base::sync_with_stdio(0);
+    string res="";
+    res+=(5+'a');
+    cout<<res;
+    return 0;
+}
