@@ -7,7 +7,7 @@ string firstName;
 string lasttName;
 char grade;
 ```
-# Supported Functions
+## Supported Functions
 The database supports the following functions:
 * Add a student record
 * Modify a student record
