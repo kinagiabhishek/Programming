@@ -53,12 +53,12 @@ typedef unordered_multiset<int> umseti;
 template<typename T, typename U> inline void amin(T &x, U y) { if(y < x) x = y; }
 template<typename T, typename U> inline void amax(T &x, U y) { if(x < y) x = y; }
 
-class uGraph {
+class UndirectedGraph {
 public:
     vvi adj;
     int v;
     int e;
-    uGraph(int v){
+    UndirectedGraph(int v){
         this->v=v;
         adj.resize(v,vi());
     }
