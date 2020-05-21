@@ -1,3 +1,6 @@
+/** Backbone structure for Student Database
+ * Author : Abhishek Kinagi
+ */
 #include <bits/stdc++.h>
 using namespace std;
 struct Student{
