@@ -10,10 +10,10 @@ shapes = {
 def intro_msg():
     print('Welcome to THE FINAL SHAPE : VERITY Guardian!')
 
-def mapper(symb):
-    if symb=='C':
+def mapper(symbol):
+    if symbol== 'C':
         return 'Circle'
-    elif symb=='S':
+    elif symbol== 'S':
         return 'Square'
     else :
         return 'Triangle'
@@ -50,12 +50,12 @@ def dissect(s1, str1, s2, str2):
     str2+=s1
     str1=''.join(sorted(str1))
     str2=''.join(sorted(str2))
-    return(str1,str2)
+    return str1,str2
      
-def solver(symbList):
-    iLeft, iMiddle, iRight = symbList[0],symbList[1],symbList[2]
-    oLeft, oMiddle, oRight = symbList[3],symbList[4],symbList[5]
-    if check_input_validity(oLeft, oMiddle, oRight)!= True:
+def solver(symbolList):
+    iLeft, iMiddle, iRight = symbolList[0],symbolList[1],symbolList[2]
+    oLeft, oMiddle, oRight = symbolList[3],symbolList[4],symbolList[5]
+    if not check_input_validity(oLeft, oMiddle, oRight):
         print('Invalid User Input!\nTry Again')
         solver(user_inp())
         return
@@ -65,32 +65,32 @@ def solver(symbList):
         output_printer(iLeft,'Left',iMiddle,'Middle')
         oLeft, oRight = dissect(iLeft,oLeft,iRight,oRight)
         output_printer(iLeft,'Left',iRight,'Right')
-        oMiddle,oRight = dissect(iMiddle,oMiddle,iRight,oRight)
+        _,oRight = dissect(iMiddle, oMiddle, iRight, oRight)
         output_printer(iMiddle,'Middle',iRight,'Right')
     elif oLeft.count(iLeft) == 2:
         oLeft, oMiddle = dissect(iLeft,oLeft,iMiddle,oMiddle)
         output_printer(iLeft,'Left',iMiddle,'Middle')
-        oLeft, oRight = dissect(iLeft,oLeft,iRight,oRight)
+        _, oRight = dissect(iLeft, oLeft, iRight, oRight)
         output_printer(iLeft,'Left',iRight,'Right')   
     elif oMiddle.count(iMiddle) ==2:
         oLeft, oMiddle = dissect(iLeft,oLeft,iMiddle,oMiddle)
         output_printer(iLeft,'Left',iMiddle,'Middle')
-        oMiddle,oRight = dissect(iMiddle,oMiddle,iRight,oRight)
+        _,oRight = dissect(iMiddle, oMiddle, iRight, oRight)
         output_printer(iMiddle,'Middle',iRight,'Right')
     elif oRight.count(iRight) == 2:
         oLeft, oRight = dissect(iLeft,oLeft,iRight,oRight)
         output_printer(iLeft,'Left',iRight,'Right')
-        oMiddle,oRight = dissect(iMiddle,oMiddle,iRight,oRight)
+        _,oRight = dissect(iMiddle, oMiddle, iRight, oRight)
         output_printer(iMiddle,'Middle',iRight,'Right')
     elif iMiddle in oLeft:
         oLeft, oRight = dissect(iLeft,oLeft,iRight,oRight)
         output_printer(iLeft,'Left',iRight,'Right')
-        oMiddle, oRight = dissect(iMiddle,oMiddle,iLeft,oRight)
+        _, oRight = dissect(iMiddle, oMiddle, iLeft, oRight)
         output_printer(iMiddle,'Middle',iLeft,'Right')
     elif iRight in oLeft:
         oLeft, oRight = dissect(iLeft,oLeft,iRight,oRight)
         output_printer(iLeft,'Left',iRight,'Right')
-        oLeft, oMiddle = dissect(iRight,oLeft,iMiddle,oMiddle)
+        _, oMiddle = dissect(iRight, oLeft, iMiddle, oMiddle)
         output_printer(iRight,'Left',iMiddle,'Middle')
     else :
         print('Invalid User Input!\nTry Again')
