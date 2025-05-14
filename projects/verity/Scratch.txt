@@ -1,0 +1,66 @@
+triple swap
+        C   S   T
+        CC  TT  SS 
+ex.2
+        C       S       TT
+        CT      SS      CT
+        CS      CT      ST
+
+
+def intro_msg():
+    print('Welcome to THE FINAL SHAPE : VERITY Guardian!') 
+
+def user_inp():
+    retList = []
+    print('Please enter inner symbols:\n')
+    inpString = input()
+    iLeft, iMiddle, iRight = inpString.split()
+    retList.extend([iLeft, iMiddle, iRight])
+    print('Please enter outer shapes:\n')
+    outString = input()
+    oLeft, oMiddle, oRight = outString.split()
+    retList.extend([''.join(sorted(oLeft)), ''.join(sorted(oMiddle)), ''.join(sorted(oRight))])
+    return retList
+
+def is_solved(iLeft, iMiddle, iRight, oLeft, oMiddle, oRight):
+    if (iLeft not in oLeft) and (iMiddle not in oMiddle) and (iRight not in oRight):
+        return True
+    else :
+        return False
+
+def mapper(symb):
+    if symb=='C':
+        return 'Circle'
+    elif symb=='S':
+        return 'Square'
+    else :
+        return 'Triangle'
+
+def output_printer(shape_1, pos_1, shape_2, pos_2):
+    print('Place '+mapper(shape_1)+' on'+pos_1+' and '+mapper(shape_2)+' on'+pos_2)
+
+def dissect(s1, str1, s2, str2):
+    str1=str1.replace(s1,"",1)
+    str2=str2.replace(s2,"",1)
+    str1+=s2
+    str2+=s1
+    str1=''.join(sorted(str1))
+    str2=''.join(sorted(str2))
+    return(str1,str2)
+     
+def solver(symbList):
+    iLeft, iMiddle, iRight = symbList[0],symbList[1],symbList[2]
+    oLeft, oMiddle, oRight = symbList[3],symbList[4],symbList[5]
+    while is_solved(iLeft, iMiddle, iRight, oLeft, oMiddle, oRight) != True:
+        if oLeft.count(iLeft) == 2 and oMiddle.count(iMiddle) == 2 and oRight.count(iRight): #Triple swap, break parity in left, middle
+            oLeft, oMiddle = dissect(iLeft,oLeft,iMiddle,oMiddle)
+            output_printer(iLeft,'Left',iMiddle,'Middle')
+        elif oLeft.count(iLeft) == 2:
+            
+        
+        
+        
+dissect('C','CC','S','SS')
+
+
+ST CS TT
